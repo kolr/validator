@@ -3,8 +3,8 @@ package org.validation.annotation.util;
 import org.validation.VerifiableField;
 import org.validation.annotation.Verify;
 import org.validation.entities.Verifiable;
-//import org.apache.log4j.Logger;
-//
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Rodion.
  */
 public class VerifyTracker {
-//    private static final Logger LOG = Logger.getLogger(VerifyTracker.class);
+    private static final Logger LOG = Logger.getLogger(VerifyTracker.class);
 
     public static List<VerifiableField> trackVerifyFields(Verifiable obj, Class<?> cl) throws IllegalAccessException {
         Field[] fields = cl.getDeclaredFields();
@@ -41,10 +41,10 @@ public class VerifyTracker {
             m = cl.getMethod("get" + capitalize(f.getName()), paramTypes);
             value = (String) m.invoke(obj, paramTypes);
         } catch (NoSuchMethodException e) {
-//            LOG.error(e);
+            LOG.error(e);
             return null;
         } catch (InvocationTargetException e) {
-//            LOG.error(e);
+            LOG.error(e);
             return null;
         }
         return value;
