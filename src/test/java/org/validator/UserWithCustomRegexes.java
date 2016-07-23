@@ -5,26 +5,24 @@ import org.validation.annotation.Validate;
 import org.validation.entities.Verifiable;
 
 /**
- * 15.07.2016
+ * 23.07.2016
  * Created by Rodion.
- * <p>
- * Entity was created just for tests.
  */
-public class User implements Verifiable {
+public class UserWithCustomRegexes implements Verifiable {
 
-    @Validate(type = FieldTypes.NAME)
+    @Validate(regexp = "[a-zA-Zа-яА-Я]{3,30}")
     private String name;
 
-    @Validate(type = FieldTypes.NAME)
+    @Validate(regexp = "[a-zA-Zа-яА-Я]{3,30}")
     private String lastname;
 
-    @Validate(type = FieldTypes.EMAIL)
+    @Validate(regexp = "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[A-Za-z]{2,4}")
     private String email;
 
-    @Validate(type = FieldTypes.PASSWORD)
+    @Validate(regexp = "[^!\"№;%:?*()_]{8,30}")
     private String password;
 
-    public User(String name, String lastname, String email, String password) {
+    public UserWithCustomRegexes(String name, String lastname, String email, String password) {
         this.name = name;
         this.lastname = lastname;
         this.email = email;

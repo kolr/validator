@@ -1,5 +1,6 @@
 package org.validation.annotation.util;
 
+import org.validation.FieldTypes;
 import org.validation.VerifiableField;
 import org.validation.annotation.Validate;
 import org.validation.entities.Verifiable;
@@ -26,7 +27,13 @@ public class VerifyTracker {
         for (Field f : fields) {
             if (f.isAnnotationPresent(Validate.class)) {
                 String value = getFieldValue(obj, cl, f);
-                VerifiableField field = new VerifiableField(f.getAnnotation(Validate.class).type(), value);
+                FieldTypes tempType = f.getAnnotation(Validate.class).type();
+                VerifiableField field;
+                if (tempType.name().equalsIgnoreCase("none")) {
+                    field = new VerifiableField(f.getAnnotation(Validate.class).regexp(), value);
+                } else {
+                    field = new VerifiableField(tempType, value);
+                }
                 verifiableFields.add(field);
             }
         }

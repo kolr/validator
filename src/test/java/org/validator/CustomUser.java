@@ -5,12 +5,10 @@ import org.validation.annotation.Validate;
 import org.validation.entities.Verifiable;
 
 /**
- * 15.07.2016
+ * 23.07.2016
  * Created by Rodion.
- * <p>
- * Entity was created just for tests.
  */
-public class User implements Verifiable {
+public class CustomUser implements Verifiable {
 
     @Validate(type = FieldTypes.NAME)
     private String name;
@@ -24,11 +22,15 @@ public class User implements Verifiable {
     @Validate(type = FieldTypes.PASSWORD)
     private String password;
 
-    public User(String name, String lastname, String email, String password) {
+    @Validate(regexp = "[0-9]*")
+    private String age;
+
+    public CustomUser(String name, String lastname, String email, String password, String age) {
         this.name = name;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.age = age;
     }
 
     public String getName() {
@@ -61,5 +63,13 @@ public class User implements Verifiable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }
