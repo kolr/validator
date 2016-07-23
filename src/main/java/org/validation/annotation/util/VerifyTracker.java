@@ -1,7 +1,7 @@
 package org.validation.annotation.util;
 
 import org.validation.VerifiableField;
-import org.validation.annotation.Verify;
+import org.validation.annotation.Validate;
 import org.validation.entities.Verifiable;
 import org.apache.log4j.Logger;
 
@@ -24,9 +24,9 @@ public class VerifyTracker {
         Field[] fields = cl.getDeclaredFields();
         List<VerifiableField> verifiableFields = new ArrayList<VerifiableField>();
         for (Field f : fields) {
-            if (f.isAnnotationPresent(Verify.class)) {
+            if (f.isAnnotationPresent(Validate.class)) {
                 String value = getFieldValue(obj, cl, f);
-                VerifiableField field = new VerifiableField(f.getAnnotation(Verify.class).type(), value);
+                VerifiableField field = new VerifiableField(f.getAnnotation(Validate.class).type(), value);
                 verifiableFields.add(field);
             }
         }

@@ -1,7 +1,7 @@
 package org.validator;
 
 import org.validation.FieldTypes;
-import org.validation.annotation.Verify;
+import org.validation.annotation.Validate;
 import org.validation.entities.Verifiable;
 
 /**
@@ -12,16 +12,16 @@ import org.validation.entities.Verifiable;
  */
 public class User implements Verifiable {
 
-    @Verify
+    @Validate
     private String name;
 
-    @Verify
+    @Validate
     private String lastname;
 
-    @Verify(type = FieldTypes.EMAIL)
+    @Validate(type = FieldTypes.EMAIL)
     private String email;
 
-    @Verify(type = FieldTypes.PASSWORD)
+    @Validate(type = FieldTypes.PASSWORD)
     private String password;
 
     public User(String name, String lastname, String email, String password) {
