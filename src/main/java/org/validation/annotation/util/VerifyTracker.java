@@ -35,8 +35,8 @@ public class VerifyTracker {
 
     private static String getFieldValue(Verifiable obj, Class<?> cl, Field f) throws IllegalAccessException {
         Class[] paramTypes = new Class[]{};
-        String value = null;
-        Method m = null;
+        String value;
+        Method m;
         try {
             m = cl.getMethod("get" + capitalize(f.getName()), paramTypes);
             value = (String) m.invoke(obj, paramTypes);
