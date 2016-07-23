@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Target(value = ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Validate {
-    FieldTypes type();
+    FieldTypes type() default FieldTypes.NONE;
 
     String regexp() default "";
 }

@@ -5,17 +5,21 @@ package org.validation;
  * Created by Rodion.
  */
 public enum FieldTypes {
-    EMAIL{
+    EMAIL {
         public String getRegExp() {
             return "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[A-Za-z]{2,4}";
         }
-    }, NAME{
+    }, NAME {
         public String getRegExp() {
             return "[a-zA-Zа-яА-Я]{3,30}";
         }
-    }, PASSWORD{
+    }, PASSWORD {
         public String getRegExp() {
             return "[^!\"№;%:?*()_]{8,30}";
+        }
+    }, NONE {
+        public String getRegExp() {
+            return "";
         }
     };
 

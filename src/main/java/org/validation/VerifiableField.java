@@ -1,5 +1,7 @@
 package org.validation;
 
+import org.validation.entities.Verifiable;
+
 /**
  * 11.07.2016
  * Created by Rodion.
@@ -14,6 +16,11 @@ public class VerifiableField {
         this.type = type;
         this.value = value;
         this.regexp = type.getRegExp();
+    }
+
+    public VerifiableField(String regexp, String value) {
+        this.value = value;
+        this.regexp = regexp;
     }
 
     public FieldTypes getType() {
