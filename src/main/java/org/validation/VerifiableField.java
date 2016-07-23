@@ -12,11 +12,6 @@ public class VerifiableField {
     private String value;
     private String regexp;
 
-    public VerifiableField() {
-        this.type = DEFAULT_TYPE;
-        this.regexp = DEFAULT_REGEXP;
-    }
-
     public VerifiableField(FieldTypes type, String value) {
         this.type = type;
         this.value = value;
