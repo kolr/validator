@@ -12,10 +12,10 @@ import org.validation.entities.Verifiable;
  */
 public class User implements Verifiable {
 
-    @Validate
+    @Validate(type = FieldTypes.NAME)
     private String name;
 
-    @Validate
+    @Validate(type = FieldTypes.NAME)
     private String lastname;
 
     @Validate(type = FieldTypes.EMAIL)
