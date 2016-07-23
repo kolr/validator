@@ -5,8 +5,6 @@ package org.validation;
  * Created by Rodion.
  */
 public class VerifiableField {
-    private static final FieldTypes DEFAULT_TYPE = FieldTypes.NAME;
-    private static final String DEFAULT_REGEXP = "";
 
     private FieldTypes type;
     private String value;
