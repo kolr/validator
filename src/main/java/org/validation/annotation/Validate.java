@@ -17,5 +17,5 @@ import java.lang.annotation.Target;
 public @interface Validate {
     FieldTypes type();
 
-    String regexp();
+    String regexp() default "";
 }
